@@ -5,6 +5,11 @@ class Questao extends StatelessWidget {
 
   Questao(this.texto);
 
+  final perguntas = [
+    'Qual é a sua cor favorita',
+    'Qual é o seu animal favorito'
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Container(
