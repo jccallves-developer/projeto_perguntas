@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors, duplicate_ignore, avoid_print, use_key_in_widget_constructors
-
 import 'package:flutter/material.dart';
 import './questao.dart';
 
