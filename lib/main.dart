@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, duplicate_ignore
+// ignore_for_file: prefer_const_constructors, duplicate_ignore, avoid_print, use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
 
@@ -6,8 +6,11 @@ main() {
   runApp(PerguntaApp());
 }
 
-// ignore: use_key_in_widget_constructors
 class PerguntaApp extends StatelessWidget {
+  void responder() {
+    print('Pergunta respondida!');
+  }
+
   @override
   Widget build(BuildContext context) {
     final perguntas = [
@@ -18,24 +21,24 @@ class PerguntaApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          // ignore: prefer_const_constructors
           title: Text('Perguntas'),
         ),
-        // ignore: prefer_const_constructors
         body: Column(
           children: <Widget>[
             Text(perguntas[0]),
             ElevatedButton(
               child: Text('Resposta 1'),
-              onPressed: null,
+              onPressed: responder,
             ),
             ElevatedButton(
               child: Text('Resposta 2'),
-              onPressed: null,
+              onPressed: () {
+                print('Pergunta respondida 2 foi selecionada!');
+              },
             ),
             ElevatedButton(
               child: Text('Resposta 3'),
-              onPressed: null,
+              onPressed: () => print('Resposta 3!'),
             ),
           ],
         ),
