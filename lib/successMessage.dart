@@ -8,11 +8,12 @@ class SuccessMessage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      margin: EdgeInsets.all(80),
-      child: Text(
-        texto,
-        style: TextStyle(fontSize: 28),
-        textAlign: TextAlign.center,
+      child: Center(
+        child: Text(
+          texto,
+          style: TextStyle(fontSize: 28),
+          textAlign: TextAlign.center,
+        ),
       ),
     );
   }

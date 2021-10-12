@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import './questao.dart';
 import './respostas.dart';
-import './successMessage.dart';
+import 'successMessage.dart';
+import './questionario.dart';
 
 main() {
   runApp(PerguntaApp());
@@ -25,6 +26,10 @@ class _PerguntaAppState extends State<PerguntaApp> {
     }
   ];
 
+  get temPerguntaSelecionada {
+    return _perguntaSelecionada < _perguntas.length;
+  }
+
   void _responder() {
     if (temPerguntaSelecionada) {
       setState(() {
@@ -33,29 +38,18 @@ class _PerguntaAppState extends State<PerguntaApp> {
     }
   }
 
-  get temPerguntaSelecionada {
-    return _perguntaSelecionada < _perguntas.length;
-  }
-
   @override
   Widget build(BuildContext context) {
-    List<String> respostas = temPerguntaSelecionada
-        ? _perguntas[_perguntaSelecionada].cast()['respostas']
-        : [];
-
     return MaterialApp(
       home: Scaffold(
           appBar: AppBar(
             title: Text('Perguntas'),
           ),
           body: temPerguntaSelecionada
-              ? Column(
-                  children: <Widget>[
-                    Questao(
-                        _perguntas[_perguntaSelecionada]['texto'].toString()),
-                    ...respostas.map((t) => Respostas(t, _responder)).toList(),
-                  ],
-                )
+              ? Questionario(
+                  perguntas: _perguntas,
+                  perguntaSelecionada: _perguntaSelecionada,
+                  quandoResponder: _responder)
               : SuccessMessage('Parabéns!')),
     );
   }
