@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import './questao.dart';
-import './respostas.dart';
 import 'successMessage.dart';
 import './questionario.dart';
 
@@ -67,7 +65,7 @@ class _PerguntaAppState extends State<PerguntaApp> {
                   perguntas: _perguntas,
                   perguntaSelecionada: _perguntaSelecionada,
                   quandoResponder: _responder)
-              : SuccessMessage('Parabéns!')),
+              : SuccessMessage(_pontuacaoTotal)),
     );
   }
 }

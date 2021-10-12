@@ -1,8 +1,20 @@
 import 'package:flutter/material.dart';
 
 class SuccessMessage extends StatelessWidget {
-  final String texto;
-  SuccessMessage(this.texto);
+  final int pontuacao;
+  SuccessMessage(this.pontuacao);
+
+  String get fraseResultado {
+    if (pontuacao < 8) {
+      return 'Parabéns!';
+    } else if (pontuacao < 12) {
+      return 'Você é bom!';
+    } else if (pontuacao < 16) {
+      return 'Impressionante!';
+    } else {
+      return 'Nível Jedi!';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -10,7 +22,7 @@ class SuccessMessage extends StatelessWidget {
       width: double.infinity,
       child: Center(
         child: Text(
-          texto,
+          fraseResultado,
           style: TextStyle(fontSize: 28),
           textAlign: TextAlign.center,
         ),
