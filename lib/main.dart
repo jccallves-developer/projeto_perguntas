@@ -31,9 +31,9 @@ class _PerguntaAppState extends State<PerguntaApp> {
         body: Column(
           children: <Widget>[
             Questao(perguntas[_perguntaSelecionada]),
-            Respostas('Resposta 1'),
-            Respostas('Resposta 2'),
-            Respostas('Resposta 3'),
+            Respostas('Resposta 1', _responder),
+            Respostas('Resposta 2', _responder),
+            Respostas('Resposta 3', _responder),
           ],
         ),
       ),
