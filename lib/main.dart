@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import './questao.dart';
 import './respostas.dart';
+import './successMessage.dart';
 
 main() {
   runApp(PerguntaApp());
@@ -44,18 +45,18 @@ class _PerguntaAppState extends State<PerguntaApp> {
 
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          title: Text('Perguntas'),
-        ),
-        body: temPerguntaSelecionada
-            ? Column(
-                children: <Widget>[
-                  Questao(_perguntas[_perguntaSelecionada]['texto'].toString()),
-                  ...respostas.map((t) => Respostas(t, _responder)).toList(),
-                ],
-              )
-            : null,
-      ),
+          appBar: AppBar(
+            title: Text('Perguntas'),
+          ),
+          body: temPerguntaSelecionada
+              ? Column(
+                  children: <Widget>[
+                    Questao(
+                        _perguntas[_perguntaSelecionada]['texto'].toString()),
+                    ...respostas.map((t) => Respostas(t, _responder)).toList(),
+                  ],
+                )
+              : SuccessMessage('Parabéns!')),
     );
   }
 }
